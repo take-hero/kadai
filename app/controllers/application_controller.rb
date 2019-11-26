@@ -8,6 +8,15 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
   
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.update(title: params[:title])
+    redirect_to("/")
+  end
+  
   def logged_in?
     !current_user.nil?
   end
