@@ -7,6 +7,12 @@ class TopicsController < ApplicationController
     @topic = Topic.new
   end
   
+  def destroy
+    @topic = Topic.find_by(id: params[:id])
+    @topic.destroy
+    redirect_to("/topics")
+  end
+  
   def new
     if logged_in?
       @topic = Topic.new

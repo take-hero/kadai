@@ -15,11 +15,12 @@
             <% else %>
             　<%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
                 <%= image_tag 'icons/heart-red.png', class: 'topic-index-icon' %>
-              <% end %>
+              <% end %>　
             <% end %>
                <%= topic.favorite_users.count %>
                <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
                <%= link_to '編集', edit_topic_path(topic)  %>
+               <%= link_to '削除', "/topics/#{topic.id}", method: :delete %>
              <p class="topic-text">
                <%= topic.description %>
              </p>

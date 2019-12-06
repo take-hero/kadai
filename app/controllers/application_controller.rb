@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def edit
     @post = Post.find_by(id: params[:id])
   end
+  
   def update
     @post = Post.find_by(id: params[:id])
     @post.update(title: params[:title])
