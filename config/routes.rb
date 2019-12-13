@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   delete 'favorites/:id' => 'favorites#destroy'
   
   delete 'topics/:id' => 'topics#destroy'
+  
+  get 'image_data/show' => 'image_data#show', :as => :show_image
 end

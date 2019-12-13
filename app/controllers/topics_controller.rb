@@ -24,7 +24,8 @@ class TopicsController < ApplicationController
   def create
     
     @topic = current_user.topics.new(topic_params)
-
+    @topic.image_data = params[:topic][:image].read
+    
     if @topic.save
       redirect_to topics_path, success: '投稿に成功しました'
     else
@@ -33,6 +34,11 @@ class TopicsController < ApplicationController
     end
   end
   
+  def show
+    @image_data = Topics. find(params[:id])
+    send_data @image_data, :type => 'image/jpeg', :disposition => 'inline'
+  end
+    
   def edit
     @topic = Topic.find_by(id: params[:id])
   end

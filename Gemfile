@@ -71,3 +71,4 @@ gem "mini_magick"
 
 gem "mysql2",group: :development
 
+gem 'fog'
